@@ -32,8 +32,5 @@ func EffectiveTLDPlusN(domain string, n int) (string, error) {
 }
 
 func removeAtMostOneTrailingPeriod(s string) string {
-	if strings.HasSuffix(s, ".") {
-		return s[:len(s)-1]
-	}
-	return s
+	return strings.TrimSuffix(s, ".")
 }
