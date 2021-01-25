@@ -27,7 +27,7 @@ func run(args []string, w io.Writer, r io.Reader) error {
 	scanner := bufio.NewScanner(r)
 	for scanner.Scan() {
 		raw := scanner.Text()
-		host, err := domainutil.EffectiveTLDPlusN(raw, *tldplus)
+		host, _, err := domainutil.EffectiveTLDPlusN(raw, *tldplus)
 		if err != nil {
 			return err
 		}
